@@ -66,7 +66,7 @@ function Layout(){
             <ProductCard
              img="../../public/image/i6.webp"
              alt="watch"
-             name="apple watch model A23"
+             name="Apple watch model A23"
              newprice="650"
              oldprice="670"
             />
