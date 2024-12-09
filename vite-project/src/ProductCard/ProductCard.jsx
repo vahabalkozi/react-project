@@ -1,20 +1,20 @@
 
 import './ProductCard.css'
 
-const ProductCard=()=>{
+const ProductCard=({img,alt,name,newprice,oldprice})=>{
 
     return(
       <div>
       <div className='product-card'>
         <div className="product-image">
-          <img src="./image/kb4.webp" alt="laptop"  className='image'/>
+          <img src={img} alt={alt}/>
         </div>
        <div className="product-info">
         <p className='category'>CATEGORY</p>
-        <p className='product-name'>PRODUCT NAME GOES HERE</p>
+        <p className='product-name'>{name}</p>
         <div className="product-price">
-          <p className='new-price'>$980.00</p>
-          <p className='old-price'>$990.00</p>
+          <p className='new-price'>${newprice}</p>
+          <p className='old-price'>${oldprice}</p>
         </div>
         <div className="rating">
           <div className="stars">
