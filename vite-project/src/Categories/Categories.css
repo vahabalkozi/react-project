@@ -1,0 +1,22 @@
+
+
+.category-item{
+    margin-bottom: 15px;
+}
+.category-item input,label{
+   margin-right: 10px;
+   width: 20px;
+   height: 20px;
+   accent-color: crimson;
+   cursor: pointer;
+}
+.category-item span{
+    color: #898787;
+}
+.category-list{
+    margin-top: 40px;
+    padding: 20px 0;
+}
+.category-list .category-title{
+    margin-bottom: 30px;
+}

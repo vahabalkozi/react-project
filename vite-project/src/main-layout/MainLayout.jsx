@@ -1,4 +1,7 @@
 import ProductCard from "../ProductCard/ProductCard.jsx";
+import TopSelling  from "../TopSellingProduct/TopSelling.jsx";
+import Filter  from  "../TopFilter/TopFilter.jsx";
+import CategoryiesList from "../Categories/Categories.jsx";
 import './MainLayout.css';
 
 function Layout(){
@@ -6,7 +9,17 @@ function Layout(){
     return(
       <div>
         <div className="header">header</div>
-        <div className="product-carts">
+        <div className="main">
+        <div className="container">
+        <div className="left-filters">
+           <CategoryiesList/>
+           <TopSelling/>
+         </div>
+         <div className="products">
+          <div className="filter-box">
+            <Filter/>
+          </div>
+         <div className="product-carts">
             <ProductCard
             img="../../public/image/kb4.webp"
             alt="laptop"
@@ -70,6 +83,9 @@ function Layout(){
              newprice="650"
              oldprice="670"
             />
+         </div>
+         </div>
+        </div>
         </div>
         <div className="footer">footer</div>
       </div>  
