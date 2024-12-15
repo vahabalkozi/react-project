@@ -4,12 +4,16 @@ import Filter  from  "../TopFilter/TopFilter.jsx";
 import CategoryiesList from "../Categories/Categories.jsx";
 import './MainLayout.css';
 import Brands from "../Brands/Brand.jsx";
+import Header from "../Header/Header.jsx";
+import Footer from "../Footer/Footer.jsx";
 
 function Layout(){
 
     return(
       <div>
-        <div className="header">header</div>
+        <div className="header">
+          <Header/>
+        </div>
         <div className="main">
         <div className="container">
         <div className="left-filters">
@@ -89,7 +93,9 @@ function Layout(){
          </div>
         </div>
         </div>
-        <div className="footer">footer</div>
+        <div className="footer">
+          <Footer/>
+        </div>
       </div>  
     )
 }

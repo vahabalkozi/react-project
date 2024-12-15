@@ -36,7 +36,7 @@
   .product-price .new-price{
     font-size: 20px;
     font-weight: bold;
-    color: #eb1f52;
+    color: crimson;
     margin-right: 10px;
   }
   .product-price .old-price{
@@ -66,7 +66,7 @@
     background-color:  #d8d5d5;
   }
   .rating .stars i{
-    color: #eb1f52;
+    color: crimson;
   }
   .rating .stars i:last-child{
     color:#ddd;
@@ -79,7 +79,7 @@
     border: none;
   }
   .actions button:hover i{
-    color: #eb1f52;
+    color: crimson;
   }
   
   
