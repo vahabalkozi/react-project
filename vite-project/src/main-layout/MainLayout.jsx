@@ -6,6 +6,7 @@ import './MainLayout.css';
 import Brands from "../Brands/Brand.jsx";
 import Header from "../Header/Header.jsx";
 import Footer from "../Footer/Footer.jsx";
+import Pagination from "../Pagination/Paginatio.jsx";
 
 function Layout(){
 
@@ -90,6 +91,9 @@ function Layout(){
              oldprice="670"
             />
          </div>
+            <div className="pagination-bar">
+              <Pagination/>
+            </div>
          </div>
         </div>
         </div>
