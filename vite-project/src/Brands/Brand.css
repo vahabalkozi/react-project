@@ -1,0 +1,18 @@
+
+
+.brand-item{
+    margin-bottom: 15px;
+}
+.brand-item input,label{
+   margin-right: 10px;
+   width: 20px;
+   height: 20px;
+   accent-color: crimson;
+   cursor: pointer;
+}
+.brand-item span{
+    color: #898787;
+}
+.brand-list .brand-title{
+    margin-bottom: 30px;
+}

@@ -3,6 +3,7 @@ import TopSelling  from "../TopSellingProduct/TopSelling.jsx";
 import Filter  from  "../TopFilter/TopFilter.jsx";
 import CategoryiesList from "../Categories/Categories.jsx";
 import './MainLayout.css';
+import Brands from "../Brands/Brand.jsx";
 
 function Layout(){
 
@@ -13,6 +14,7 @@ function Layout(){
         <div className="container">
         <div className="left-filters">
            <CategoryiesList/>
+           <Brands/>
            <TopSelling/>
          </div>
          <div className="products">
