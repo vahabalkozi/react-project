@@ -12,13 +12,6 @@
   margin: 50px auto;
   display: flex;
 }
-.product-carts{
-    padding-top: 20px;
-    display: flex;
-    justify-content:flex-start;
-    flex-wrap: wrap;
-    gap: 20px;
-  }
   .left-filters{
     margin-left: 100px;
     padding-right: 50px;

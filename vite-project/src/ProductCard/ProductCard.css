@@ -81,5 +81,11 @@
   .actions button:hover i{
     color: crimson;
   }
-  
+  .product-carts{
+    padding-top: 20px;
+    display: flex;
+    justify-content:flex-start;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
   

@@ -8,11 +8,21 @@ export const FooterLists = ({title,first,second,third,fourth,fifth})=>{
                     <h3>{title}</h3>
                 </div>
                 <ul className='list'>
+                    <a href="#">
                     <li>{first}</li>
-                    <li>{second}</li>
-                    <li>{third}</li>
+                    </a>
+                   <a href="#">
+                   <li>{second}</li>
+                   </a>
+                   <a href="#">
+                   <li>{third}</li>
+                   </a>
+                    <a href="#">
                     <li>{fourth}</li>
+                    </a>
+                    <a href="#">
                     <li>{fifth}</li>
+                    </a>
                 </ul>
             </div>
         </div>
