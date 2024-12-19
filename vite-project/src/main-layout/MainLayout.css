@@ -1,18 +1,16 @@
-
-
-.header{
-    text-align: center;
-    font-size: 20px;
+.header {
+  text-align: center;
+  font-size: 20px;
 }
-.main{
+.main {
   width: 100%;
 }
-.container{
-  max-width:1400px;
+.container {
+  max-width: 1400px;
   margin: 50px auto;
   display: flex;
 }
-  .left-filters{
-    margin-left: 100px;
-    padding-right: 50px;
-  }
+.left-filters {
+  margin-left: 100px;
+  padding-right: 50px;
+}

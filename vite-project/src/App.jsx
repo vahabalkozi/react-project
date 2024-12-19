@@ -1,15 +1,14 @@
-import React from 'react';
-import ProductCart from './ProductCard/ProductCard.jsx';
-import './App.css';
-import Layout from './main-layout/MainLayout.jsx';
+import React from "react";
+import ProductCart from "./ProductCard/ProductCard.jsx";
+import "./App.css";
+import Layout from "./main-layout/MainLayout.jsx";
 
-function App(){
-
-  return(
+function App() {
+  return (
     <>
-      <Layout/>
+      <Layout />
     </>
-  )
+  );
 }
 
 export default App;

@@ -1,109 +1,99 @@
+import { useState, useEffect } from "react";
+import FetchProduct from "../FetchProduct/FetchProduct.jsx";
+import "./ProductCard.css";
 
-import './ProductCard.css'
-
-export const ProductCard=({img,alt,name,newprice,oldprice})=>{
-
-    return(
-      <div>
-      <div className='product-card'>
+export const ProductCard = ({
+  img,
+  alt,
+  name,
+  newprice,
+  stock,
+  category,
+  description,
+}) => {
+  return (
+    <div>
+      <div className="product-card">
         <div className="product-image">
-          <img src={img} alt={alt}/>
+          <img src={img} alt={alt} />
         </div>
-       <div className="product-info">
-        <p className='category'>CATEGORY</p>
-        <p className='product-name'>{name}</p>
-        <div className="product-price">
-          <p className='new-price'>${newprice}</p>
-          <p className='old-price'>${oldprice}</p>
-        </div>
-        <div className="rating">
-          <div className="stars">
-            <i className='fa fa-star'></i>
-            <i className='fa fa-star'></i>
-            <i className='fa fa-star'></i>
-            <i className='fa fa-star'></i>
-            <i className='fa fa-star'></i>
+        <div className="product-info">
+          <p className="category">{category}</p>
+          <p className="product-name">{name}</p>
+          <p className="description">{description}</p>
+          <div className="product-price">
+            <p className="new-price">${newprice}</p>
+          </div>
+          <p className="stock">stock: {stock}</p>
+          <div className="rating">
+            <div className="stars">
+              <i className="fa fa-star"></i>
+              <i className="fa fa-star"></i>
+              <i className="fa fa-star"></i>
+              <i className="fa fa-star"></i>
+              <i className="fa fa-star"></i>
+            </div>
+          </div>
+          <div className="actions">
+            <button className="fevorite">
+              <i className="fa fa-heart"></i>
+            </button>
+            <button className="share">
+              <i className="fa fa-exchange"></i>
+            </button>
+            <button className="view">
+              <i className="fa fa-eye"></i>
+            </button>
           </div>
         </div>
-         <div className="actions">
-          <button className='fevorite'><i className='fa fa-heart'></i></button>
-          <button className='share'><i className='fa fa-exchange'></i></button>
-          <button className='view'><i className='fa fa-eye'></i></button>
-         </div>
-       </div>
-     </div>
+      </div>
     </div>
-    );
+  );
+};
+
+const ProductCards = () => {
+  const [products, setProducts] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(undefined);
+
+  useEffect(() => {
+    const loadProducts = async () => {
+      setIsLoading(true);
+
+      try {
+        const data = await FetchProduct();
+        setProducts(data);
+        setIsLoading(false);
+      } catch (error) {
+        setError(error.message);
+        setIsLoading(false);
+      }
+    };
+    loadProducts();
+  }, []);
+
+  if (isLoading) {
+    return <p>Loading...</p>;
   }
-  
-  const ProductCards = ()=>{
-    return(
-        <div className='product-carts'>
-          <ProductCard
-            img="../../public/image/kb4.webp"
-            alt="laptop"
-            name="lenovo laptap model X6"
-            newprice="980"
-            oldprice="990"
-            />
-            <ProductCard
-             img="../../public/image/i8.webp"
-             alt="headphone"
-             name="Headphone model G3"
-             newprice="770"
-             oldprice="800"
-            />
-            <ProductCard
-             img="../../public/image/k1.webp"
-             alt="laptop"
-             name="Del laptap model Y7"
-             newprice="820"
-             oldprice="850"
-            />
-            <ProductCard
-             img="../../public/image/ib2.webp"
-             alt="tablet"
-             name="Samsung tablet model G6"
-             newprice="520"
-             oldprice="560"
-            />
-            <ProductCard
-             img="../../public/image/i4.webp"
-             alt="headphone"
-             name="Headphone model X6"
-             newprice="280"
-             oldprice="310"
-            />
-            <ProductCard
-             img="../../public/image/k6.webp"
-             alt="laptop"
-             name="lenovo laptap model X456"
-             newprice="880"
-             oldprice="920"
-            />
-            <ProductCard
-             img="../../public/image/i9.webp"
-             alt="mobile"
-             name="Honor model X3"
-             newprice="330"
-             oldprice="350"
-            />
-            <ProductCard
-             img="../../public/image/k7.webp"
-             alt="laptop"
-             name="hp laptap model U567"
-             newprice="950"
-             oldprice="980"
-            />
-            <ProductCard
-             img="../../public/image/i6.webp"
-             alt="watch"
-             name="Apple watch model A23"
-             newprice="650"
-             oldprice="670"
-            />
-        </div>
-    )
+  if (error) {
+    return <p>Error:{error}</p>;
   }
-  
- export default ProductCards;
+
+  return (
+    <div className="product-carts">
+      {products?.map((product) => (
+        <ProductCard
+          key={product.id}
+          newprice={Math.floor(product.price)}
+          img={product.images[1]}
+          name={product.name}
+          category={product.category.name}
+          description={product.description.substring(0, 60) + `...`}
+          stock={product.stock}
+        />
+      ))}
+    </div>
+  );
+};
+
+export default ProductCards;
