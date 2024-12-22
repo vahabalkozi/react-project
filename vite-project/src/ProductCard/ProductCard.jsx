@@ -83,9 +83,9 @@ const ProductCards = () => {
 
   return (
     <div className="product-carts">
-      {products?.map((product, index) => (
+      {products?.map((product) => (
         <ProductCard
-          key={product.id || index}
+          key={product._id}
           newprice={Math.floor(product.price)}
           img={product.images[1]}
           name={product.name}

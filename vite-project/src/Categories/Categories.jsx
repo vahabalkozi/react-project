@@ -1,10 +1,12 @@
 import "./Categories.css";
+import FetchCategories from "../FetchCategories/FetchCategories.jsx";
+import { useEffect, useState } from "react";
 
-export const Category = ({ name, quantity, id, conect }) => {
+export const CategoryItem = ({ name, quantity }) => {
   return (
     <div className="category-item">
-      <label htmlFor={conect}>
-        <input type="checkbox" id={id} />
+      <label>
+        <input type="checkbox" />
         {name} <span>({quantity})</span>
       </label>
     </div>
@@ -12,27 +14,44 @@ export const Category = ({ name, quantity, id, conect }) => {
 };
 
 const CategoryiesList = () => {
+  const [category, setCategory] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(undefined);
+
+  useEffect(() => {
+    const loadCategories = async () => {
+      setIsLoading(true);
+      try {
+        const data = await FetchCategories();
+        setCategory(data);
+        setIsLoading(false);
+      } catch (error) {
+        setError(error.message);
+        setIsLoading(false);
+      }
+    };
+    loadCategories();
+  }, []);
+
+  if (isLoading) {
+    return <p>Loading...</p>;
+  }
+  if (error) {
+    return <p>Error:{error}</p>;
+  }
+
   return (
     <div className="category-list">
       <div className="category-title">
         <h2>CATEGORIES</h2>
       </div>
-      <Category id="laptop" conect="laptop" name="Laptops" quantity="120" />
-      <Category id="phone" conect="phone" name="Smartphones" quantity="740" />
-      <Category id="camera" conect="camera" name="Cameras" quantity="1450" />
-      <Category
-        id="accessories"
-        conect="accessories"
-        name="Accessories"
-        quantity="578"
-      />
-      <Category id="whatch" conect="whatch" name="Whatch" quantity="120" />
-      <Category
-        id="headphone"
-        conect="headphone"
-        name="Headphone"
-        quantity="740"
-      />
+      {category?.map((item) => (
+        <CategoryItem
+          key={item._id}
+          name={item.name}
+          quantity={item.productCount}
+        />
+      ))}
     </div>
   );
 };
