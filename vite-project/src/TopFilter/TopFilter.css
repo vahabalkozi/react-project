@@ -17,8 +17,8 @@
 .product-show p {
   color: #979797;
 }
-.product-sort select,
-.product-show select {
+.product-sort .select-box select,
+.product-show .select-box select {
   margin-left: 5px;
   height: 40px;
   padding: 0 10px;
@@ -30,7 +30,8 @@
   cursor: pointer;
   font-size: 14px;
 }
-.select-box {
+.product-show .select-box,
+.product-sort .select-box {
   position: relative;
 }
 .product-sort .select-box::after,

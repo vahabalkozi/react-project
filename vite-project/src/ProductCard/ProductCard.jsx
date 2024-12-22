@@ -24,7 +24,9 @@ export const ProductCard = ({
           <div className="product-price">
             <p className="new-price">${newprice}</p>
           </div>
-          <p className="stock">stock: {stock}</p>
+          <p className="stock">
+            {stock > 0 ? `stock:${stock}` : "out of stock"}
+          </p>
           <div className="rating">
             <div className="stars">
               <i className="fa fa-star"></i>
@@ -81,9 +83,9 @@ const ProductCards = () => {
 
   return (
     <div className="product-carts">
-      {products?.map((product) => (
+      {products?.map((product, index) => (
         <ProductCard
-          key={product.id}
+          key={product.id || index}
           newprice={Math.floor(product.price)}
           img={product.images[1]}
           name={product.name}
@@ -92,6 +94,7 @@ const ProductCards = () => {
           stock={product.stock}
         />
       ))}
+      ;
     </div>
   );
 };

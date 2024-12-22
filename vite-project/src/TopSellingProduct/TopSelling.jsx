@@ -9,10 +9,10 @@ export const TopSellingProduct = ({ img, alt, name, newprice, oldprice }) => {
         </div>
         <div className="top-selling-product-info">
           <p className="category">CATEGORY</p>
-          <h3 className="top-selling-product-name">{name}</h3>
+          <h3 className="name">{name}</h3>
           <div className="top-selling-product-price">
-            <div className="top-selling-product-newprice">${newprice}</div>
-            <div className="top-selling-product-oldprice">${oldprice}</div>
+            <div className="newprice">${newprice}</div>
+            <div className="oldprice">${oldprice}</div>
           </div>
         </div>
       </div>

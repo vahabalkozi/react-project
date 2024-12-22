@@ -16,16 +16,16 @@ ul li {
   align-items: flex-start;
   justify-content: flex-start;
 }
-.list-title {
+.footer-list .list-title {
   color: white;
 }
-.list li {
+.footer-list .list li {
   color: #888484;
   margin-top: 10px;
   cursor: pointer;
   transition: 0.3s;
   font-size: 14px;
 }
-.list li:hover {
+.footer-list .list li:hover {
   color: crimson;
 }
