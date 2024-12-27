@@ -1,7 +1,4 @@
-import { useState, useEffect } from "react";
-import FetchProduct from "../FetchProduct/FetchProduct.jsx";
 import "./ProductCard.css";
-
 export const ProductCard = ({
   img,
   alt,
@@ -47,56 +44,11 @@ export const ProductCard = ({
               <i className="fa fa-eye"></i>
             </button>
           </div>
+          <div className="add-to-cart">
+            <button className="add-cart-button">Add to Cart</button>
+          </div>
         </div>
       </div>
     </div>
   );
 };
-
-const ProductCards = () => {
-  const [products, setProducts] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState(undefined);
-
-  useEffect(() => {
-    const loadProducts = async () => {
-      setIsLoading(true);
-
-      try {
-        const data = await FetchProduct();
-        setProducts(data);
-        setIsLoading(false);
-      } catch (error) {
-        setError(error.message);
-        setIsLoading(false);
-      }
-    };
-    loadProducts();
-  }, []);
-
-  if (isLoading) {
-    return <p>Loading...</p>;
-  }
-  if (error) {
-    return <p>Error:{error}</p>;
-  }
-
-  return (
-    <div className="product-carts">
-      {products?.map((product) => (
-        <ProductCard
-          key={product._id}
-          newprice={Math.floor(product.price)}
-          img={product.images[1]}
-          name={product.name}
-          category={product.category.name}
-          description={product.description.substring(0, 60) + `...`}
-          stock={product.stock}
-        />
-      ))}
-      ;
-    </div>
-  );
-};
-
-export default ProductCards;

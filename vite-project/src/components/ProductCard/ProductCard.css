@@ -86,6 +86,21 @@
 .product-info .actions button:hover i {
   color: crimson;
 }
+.product-info .add-to-cart .add-cart-button {
+  width: 200px;
+  margin-top: 10px;
+  border-radius: 20px;
+  border: 2px solid transparent;
+  color: white;
+  background-color: crimson;
+  outline: none;
+  transition: 0.5s;
+}
+.product-info .add-to-cart .add-cart-button:hover {
+  background-color: transparent;
+  color: black;
+  border: 2px solid black;
+}
 .product-carts {
   min-height: 500px;
   padding-top: 20px;

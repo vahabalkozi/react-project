@@ -6,7 +6,7 @@ const FetchCategories = async () => {
     const data = await response.json();
     return data;
   } catch (error) {
-    console.error("Error fetching products:", error);
+    console.error("Error fetching categories:", error);
   }
 };
 export default FetchCategories;

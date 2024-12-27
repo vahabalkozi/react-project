@@ -1,22 +1,13 @@
 import "./Categories.css";
-import FetchCategories from "../FetchCategories/FetchCategories.jsx";
+import FetchCategories from "../../FetchFunction/FetchCategories/FetchCategories.jsx";
 import { useEffect, useState } from "react";
+import { CategoryItem } from "./CategoryItem.jsx";
 
-export const CategoryItem = ({ name, quantity }) => {
-  return (
-    <div className="category-item">
-      <label>
-        <input type="checkbox" />
-        {name} <span>({quantity})</span>
-      </label>
-    </div>
-  );
-};
-
-const CategoryiesList = () => {
+const CategoriesList = () => {
   const [category, setCategory] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(undefined);
+  const [checkedId, setCheckedId] = useState([]);
 
   useEffect(() => {
     const loadCategories = async () => {
@@ -33,13 +24,26 @@ const CategoryiesList = () => {
     loadCategories();
   }, []);
 
+  const handleCheckboxChange = (id) => {
+    setCheckedId((prev) => {
+      if (prev.includes(id)) {
+        return prev.filter((checkedId) => checkedId !== id);
+      } else {
+        return [...prev, id];
+      }
+    });
+  };
+
+  useEffect(() => {
+    console.log(checkedId);
+  }, [checkedId]);
+
   if (isLoading) {
     return <p>Loading...</p>;
   }
   if (error) {
     return <p>Error:{error}</p>;
   }
-
   return (
     <div className="category-list">
       <div className="category-title">
@@ -50,10 +54,10 @@ const CategoryiesList = () => {
           key={item._id}
           name={item.name}
           quantity={item.productCount}
+          onCheckboxChange={() => handleCheckboxChange(item._id)}
         />
       ))}
     </div>
   );
 };
-
-export default CategoryiesList;
+export default CategoriesList;

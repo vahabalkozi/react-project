@@ -1,45 +1,17 @@
 import "./Footer.css";
-
-export const FooterLists = ({ title, first, second, third, fourth, fifth }) => {
-  return (
-    <div>
-      <div className="footer-list">
-        <div className="list-title">
-          <h3>{title}</h3>
-        </div>
-        <ul className="list">
-          <a href="#">
-            <li>{first}</li>
-          </a>
-          <a href="#">
-            <li>{second}</li>
-          </a>
-          <a href="#">
-            <li>{third}</li>
-          </a>
-          <a href="#">
-            <li>{fourth}</li>
-          </a>
-          <a href="#">
-            <li>{fifth}</li>
-          </a>
-        </ul>
-      </div>
-    </div>
-  );
-};
+import { FooterList } from "./FooterList";
 
 const Footer = () => {
   return (
     <div className="footer-bar">
-      <FooterLists
+      <FooterList
         title="ABOUT US"
         first="Lorem ipsum dolor"
         second="1734 stonecoal road"
         third="+021-95-51-84"
         fourth="email@email.com"
       />
-      <FooterLists
+      <FooterList
         title="CATEGORIES"
         first="Hot deals"
         second="Laptops"
@@ -47,7 +19,7 @@ const Footer = () => {
         fourth="Cameras"
         fifth="Accessories"
       />
-      <FooterLists
+      <FooterList
         title="INFORMATION"
         first="About Us"
         second="Contact Us"
@@ -55,7 +27,7 @@ const Footer = () => {
         fourth="Orders and Returens"
         fifth="Terms and Condition"
       />
-      <FooterLists
+      <FooterList
         title="CATEGORIES"
         first="Hot deals"
         second="Laptops"
@@ -63,7 +35,7 @@ const Footer = () => {
         fourth="Cameras"
         fifth="Accessories"
       />
-      <FooterLists
+      <FooterList
         title="SERVICE"
         first="My Account"
         second="View Cart"

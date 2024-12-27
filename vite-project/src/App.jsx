@@ -1,5 +1,5 @@
 import React from "react";
-import Layout from "./main-layout/MainLayout.jsx";
+import Layout from "./components/main-layout/MainLayout.jsx";
 
 function App() {
   return (
