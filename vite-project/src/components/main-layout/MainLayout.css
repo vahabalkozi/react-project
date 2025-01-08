@@ -17,3 +17,7 @@
 .products {
   min-width: 50%;
 }
+.product-cart {
+  min-width: 960px;
+  min-height: 100vw;
+}

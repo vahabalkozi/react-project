@@ -2,9 +2,11 @@ import { useState, useEffect } from "react";
 import FetchProduct from "../../FetchFunction/FetchProduct/FetchProduct.jsx";
 import "./ProductCard.css";
 import { ProductCard } from "./ProductCard.jsx";
+import { useCategoryContext } from "../CategoryContext/CategoryContext.jsx";
 
 const ProductCards = () => {
   const [products, setProducts] = useState([]);
+  const { checkedId } = useCategoryContext();
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(undefined);
 
@@ -13,7 +15,7 @@ const ProductCards = () => {
       setIsLoading(true);
 
       try {
-        const data = await FetchProduct();
+        const data = await FetchProduct(checkedId);
         setProducts(data);
         setIsLoading(false);
       } catch (error) {
@@ -22,7 +24,7 @@ const ProductCards = () => {
       }
     };
     loadProducts();
-  }, []);
+  }, [checkedId]);
 
   if (isLoading) {
     return <p>Loading...</p>;
@@ -44,7 +46,6 @@ const ProductCards = () => {
           stock={product.stock}
         />
       ))}
-      ;
     </div>
   );
 };
