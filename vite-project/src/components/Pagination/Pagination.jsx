@@ -1,22 +1,19 @@
 import "./Pagination.css";
 import { PaginationButton } from "./PaginationButton.jsx";
 
-const Pagination = () => {
+const Pagination = ({ currentPage, totalPages, onPageChange }) => {
+  const pages = Array.from({ length: totalPages }, (_, i) => i + 1);
+
   return (
-    <div>
-      <div className="pagination-box">
-        <div className="text">
-          <p>
-            SHOWING <span>20</span>-<span>100 </span>PRODUCT
-          </p>
-        </div>
-        <div className="buttons">
-          <PaginationButton className="active" amount="1" />
-          <PaginationButton amount="2" />
-          <PaginationButton amount="3" />
-          <PaginationButton amount=">" />
-        </div>
-      </div>
+    <div className="pagination-box">
+      {pages.map((page) => (
+        <PaginationButton
+          key={page}
+          amount={page}
+          isActive={page === currentPage}
+          onClick={() => onPageChange(page)}
+        />
+      ))}
     </div>
   );
 };

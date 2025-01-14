@@ -1,6 +1,6 @@
 import "./TopFilter.css";
 
-const Filter = () => {
+const Filter = ({ itemPerPage, onchange }) => {
   return (
     <div>
       <div className="top-product-filter">
@@ -17,7 +17,7 @@ const Filter = () => {
           <div className="product-show">
             <p>SHOW:</p>
             <div className="select-box">
-              <select name="" id="">
+              <select name="" id="" value={itemPerPage} onChange={onchange}>
                 <option value="20">20</option>
                 <option value="10">10</option>
               </select>

@@ -1,12 +1,14 @@
 import "./Pagination.css";
-export const PaginationButton = ({ amount }) => {
+
+export const PaginationButton = ({ amount, isActive, onClick }) => {
   return (
     <div>
-      <div className="pagination">
-        <div className="pagination-button">
-          <a href="#">{amount}</a>
-        </div>
-      </div>
+      <button
+        className={`pagination-button ${isActive ? "active" : ""}`}
+        onClick={onClick}
+      >
+        {amount}
+      </button>
     </div>
   );
 };

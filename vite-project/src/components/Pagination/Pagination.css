@@ -1,17 +1,15 @@
 .pagination-box {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  margin-top: 50px;
 }
-.pagination-box .buttons {
-  display: flex;
-  align-items: center;
-  margin-right: 20px;
-}
-.pagination .pagination-button a {
-  margin-right: 10px;
+.pagination-button {
+  margin-right: 5px;
   padding: 10px 15px;
   color: black;
   border: 1px solid #a9a8a8;
+}
+.active {
+  color: white;
+  background-color: crimson;
 }
