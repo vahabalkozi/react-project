@@ -1,0 +1,54 @@
+.search-bar {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.search-bar .select-option select {
+  padding: 10px 15px;
+  background-color: white;
+  color: #5e5d5d;
+  border-radius: 20px 0 0 20px;
+  font-size: 14px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+.search-bar .select-option {
+  position: relative;
+}
+.search-bar .select-option::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 20px;
+  background-color: #6e6c6c;
+  pointer-events: none;
+  cursor: pointer;
+  opacity: 0.3;
+}
+.search-bar .search {
+  width: 400px;
+  border-radius: 0 20px 20px 0;
+  padding: 10px;
+  font-size: 14px;
+  border: none;
+  outline: none;
+}
+.search-bar .search-button {
+  background-color: crimson;
+  color: white;
+  font-size: 16px;
+  padding: 9.5px 20px;
+  border: none;
+  position: absolute;
+  right: 0;
+  top: 0;
+  border-radius: 0 20px 20px 0;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+.search-bar .search-button:hover {
+  background-color: #b80c2e;
+}

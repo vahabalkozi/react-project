@@ -21,7 +21,7 @@ function Layout() {
               <Brands />
               <TopSelling />
             </div>
-            <div className="product-cart">
+            <div className="product-carts-box">
               <ProductCards />
             </div>
           </CategoryProvider>

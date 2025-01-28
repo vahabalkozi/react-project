@@ -1,0 +1,21 @@
+.icons {
+  display: flex;
+  gap: 20px;
+}
+.icon {
+  text-align: center;
+  cursor: pointer;
+}
+.icon i {
+  color: white;
+  transition: 0.3s ease;
+}
+.icon:hover i {
+  color: crimson;
+}
+.icon p {
+  color: white;
+  font-size: 14px;
+  margin: 5px 0 0;
+  transition: 0.3s ease;
+}

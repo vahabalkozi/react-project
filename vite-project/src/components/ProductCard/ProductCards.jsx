@@ -11,9 +11,10 @@ const ProductCards = () => {
   const { checkedId } = useCategoryContext();
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(undefined);
-  const [pagination, setPagination] = useState({});
+  const [pagination, setPagination] = useState({ totalItems: 0 });
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage, setItemsPerPage] = useState(10);
+  const [viewMode, setViewMode] = useState("grid");
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -62,18 +63,28 @@ const ProductCards = () => {
 
   return (
     <div>
-      <Filter itemPerPage={itemsPerPage} onchange={handleItemsPerPageChange} />
+      <Filter
+        itemPerPage={itemsPerPage}
+        onchange={handleItemsPerPageChange}
+        onChangeViewMode={(mode) => setViewMode(mode)}
+        viewmode={viewMode}
+      />
 
-      <div className="product-carts">
+      <div className={`product-carts ${viewMode}`}>
         {products?.map((product) => (
           <ProductCard
             key={product._id}
             newprice={Math.floor(product.price)}
-            img={product.images[0]}
-            name={product.name.substring(0, 20) + `..`}
+            img={product.images[1]}
+            name={product.name}
             category={product.category.name}
-            description={product.description.substring(0, 60) + `...`}
+            description={
+              viewMode === "grid"
+                ? product.description.substring(0, 60) + `...`
+                : product.description
+            }
             stock={product.stock}
+            rating={product.rating}
           />
         ))}
       </div>

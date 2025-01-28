@@ -7,7 +7,10 @@ export const ProductCard = ({
   stock,
   category,
   description,
+  rating = 0,
 }) => {
+  const filledStars = Math.floor(rating);
+  const emptyStars = 5 - filledStars;
   return (
     <div>
       <div className="product-card">
@@ -21,16 +24,19 @@ export const ProductCard = ({
           <div className="product-price">
             <p className="new-price">${newprice}</p>
           </div>
-          <p className="stock">
-            {stock > 0 ? `stock:${stock}` : "out of stock"}
+          <p className={`stock ${stock === 0 ? "out-of-stock" : ""}`}>
+            <i className="fa fa-check-circle"></i>
+            {stock > 0 ? `Stock: ${stock}` : "Out of Stock"}
           </p>
           <div className="rating">
             <div className="stars">
-              <i className="fa fa-star"></i>
-              <i className="fa fa-star"></i>
-              <i className="fa fa-star"></i>
-              <i className="fa fa-star"></i>
-              <i className="fa fa-star"></i>
+              {[...Array(filledStars)].map((_, index) => (
+                <i key={`filled-${index}`} className="fa fa-star filled"></i>
+              ))}
+
+              {[...Array(emptyStars)].map((_, index) => (
+                <i key={`empty-${index}`} className="fa fa-star"></i>
+              ))}
             </div>
           </div>
           <div className="actions">

@@ -1,17 +1,53 @@
-.header-bar {
+.top-bar {
+  padding: 5px 20px;
+  font-size: 14px;
+  background-color: #2e2e2e;
+}
+.header-container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+.top-bar-info {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+.top-bar-info .contact-info,
+.top-bar .currency-account span {
+  color: white;
+}
+.top-bar-info i {
+  color: crimson;
+  margin-right: 5px;
+  margin-left: 15px;
+}
+.top-bar-info .currency-account .colored {
+  color: crimson;
+}
+
+.top-bar-info .currency-account a {
+  color: white;
+  text-decoration: none;
+}
+
+.main-header {
   background-color: #111010;
+  padding: 20px 0;
   border-bottom: 3px solid crimson;
 }
-.header-bar .logo a p {
-  margin-left: 80px;
+.main-header-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.logo a p {
+  margin: 0;
   color: white;
-  font-size: 50px;
+  font-size: 38px;
   font-weight: bold;
 }
-.header-bar .logo a p span {
-  font-size: 80px;
+
+.logo a p i {
+  font-size: 12px;
   color: crimson;
 }

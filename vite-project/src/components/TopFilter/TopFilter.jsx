@@ -1,6 +1,6 @@
 import "./TopFilter.css";
 
-const Filter = ({ itemPerPage, onchange }) => {
+const Filter = ({ itemPerPage, onchange, onChangeViewMode, viewmode }) => {
   return (
     <div>
       <div className="top-product-filter">
@@ -25,8 +25,14 @@ const Filter = ({ itemPerPage, onchange }) => {
           </div>
         </div>
         <div className="product-structure">
-          <i className="fa fa-th" aria-hidden="true"></i>
-          <i className="fa fa-th-list" aria-hidden="true"></i>
+          <i
+            className={`bi bi-grid ${viewmode === "grid" ? "active" : ""}`}
+            onClick={() => onChangeViewMode("grid")}
+          ></i>
+          <i
+            className={`bi bi-list-task ${viewmode === "list" ? "active" : ""}`}
+            onClick={() => onChangeViewMode("list")}
+          ></i>
         </div>
       </div>
     </div>

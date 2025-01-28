@@ -38,7 +38,7 @@
 .product-show .select-box::after {
   content: "";
   position: absolute;
-  top: 1px;
+  top: 0;
   right: 0;
   height: 100%;
   width: 20px;
@@ -53,8 +53,9 @@
   padding: 10px;
   border: 1px solid #c9c7c7;
   cursor: pointer;
+  font-weight: bold;
 }
-.product-structure i:first-child {
+.active {
   background-color: crimson;
   color: white;
 }

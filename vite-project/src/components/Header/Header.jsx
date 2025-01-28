@@ -1,16 +1,46 @@
 import "./Header.css";
-
+import Navigation from "../Navigation/Navigation.jsx";
+import SearchBar from "../SearchBar/SearchBar.jsx";
+import CartIcon from "../Cart/Cart.jsx";
 const Header = () => {
   return (
-    <div className="header-bar">
-      <div className="logo">
-        <a href="#">
-          <p>
-            Electro <span>.</span>
-          </p>
-        </a>
+    <div>
+      <div className="top-bar">
+        <div className="header-container">
+          <div className="top-bar-info">
+            <p className="contact-info">
+              <i className="fa fa-phone"></i>+021-95-51-84
+              <i className="fa fa-envelope"></i>email@gmail.com
+              <i className="fas fa-map-marker-alt"></i> 1734 Stonecoal Road
+            </p>
+            <p className="currency-account">
+              <span>
+                <span className="colored">$</span> USD
+              </span>{" "}
+              <a href="#">
+                <i className="fas fa-user-alt"></i>My Account
+              </a>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div className="main-header">
+        <div className="header-container">
+          <div className="main-header-info">
+            <div className="logo">
+              <a href="#">
+                <p>
+                  Electro <i className=" 	fa fa-circle"></i>
+                </p>
+              </a>
+            </div>
+            <SearchBar />
+            <CartIcon />
+          </div>
+        </div>
       </div>
     </div>
   );
 };
+
 export default Header;
