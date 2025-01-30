@@ -4,31 +4,34 @@ import "./SearchBar.css";
 const SearchBar = ({ onSearch }) => {
   const [searchText, setSearchText] = useState("");
 
-  const handleSearch = () => {
+  const handleSearch = (event) => {
+    event.preventDefault();
     onSearch(searchText);
   };
   return (
-    <div className="search-bar">
-      <div className="select-option">
-        <select>
-          <option>All Categories</option>
-          <option>Electronics</option>
-          <option>Fashion</option>
-          <option>Home</option>
-        </select>
-      </div>
-      <input
-        type="serch"
-        placeholder="Search here"
-        className="search"
-        value={searchText}
-        onChange={(e) => {
-          setSearchText(e.target.value);
-        }}
-      />
-      <button className="search-button" onClick={handleSearch}>
-        Search
-      </button>
+    <div>
+      <form action="" onSubmit={handleSearch} className="search-bar">
+        <div className="select-option">
+          <select>
+            <option>All Categories</option>
+            <option>Electronics</option>
+            <option>Cloting</option>
+            <option>Home & Garden</option>
+            <option>Books</option>
+            <option>Sports</option>
+          </select>
+        </div>
+        <input
+          type="serch"
+          placeholder="Search here"
+          className="search"
+          value={searchText}
+          onChange={(e) => {
+            setSearchText(e.target.value);
+          }}
+        />
+        <button className="search-button">Search</button>
+      </form>
     </div>
   );
 };

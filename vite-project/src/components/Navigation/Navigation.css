@@ -5,13 +5,32 @@
   padding: 0;
 }
 .navigation ul li {
-  margin: 0 15px;
+  margin: 0 20px;
+  padding: 10px 0;
+  position: relative;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+.navigation ul li::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 80%;
+  background-color: crimson;
+  height: 2px;
+  width: 0;
+  transition: 0.3s ease-in-out;
+}
+.navigation ul li:hover::after,
+.navigation ul li.actived::after {
+  width: 100%;
 }
 .navigation ul li a {
-  color: white;
+  color: #333;
   text-decoration: none;
   font-size: 16px;
 }
-.navigation ul li a:hover {
+.navigation ul li:hover a,
+.navigation ul li.actived a {
   color: crimson;
 }

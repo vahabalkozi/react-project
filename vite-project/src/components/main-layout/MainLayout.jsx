@@ -1,3 +1,4 @@
+import { useState } from "react";
 import ProductCards from "../ProductCard/ProductCards.jsx";
 import TopSelling from "../TopSellingProduct/TopSelling.jsx";
 import CategoryiesList from "../Categories/Categories.jsx";
@@ -8,10 +9,15 @@ import Footer from "../Footer/Footer.jsx";
 import { CategoryProvider } from "../CategoryContext/CategoryContext.jsx";
 
 function Layout() {
+  const [searchText, setSearchText] = useState("");
+
+  const handleSearch = (text) => {
+    setSearchText(text);
+  };
   return (
     <div>
       <div className="header">
-        <Header />
+        <Header onSearch={handleSearch} />
       </div>
       <div className="main">
         <div className="container">
@@ -22,7 +28,7 @@ function Layout() {
               <TopSelling />
             </div>
             <div className="product-carts-box">
-              <ProductCards />
+              <ProductCards searchText={searchText} />
             </div>
           </CategoryProvider>
         </div>

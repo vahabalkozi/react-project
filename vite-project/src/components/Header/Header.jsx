@@ -2,7 +2,7 @@ import "./Header.css";
 import Navigation from "../Navigation/Navigation.jsx";
 import SearchBar from "../SearchBar/SearchBar.jsx";
 import CartIcon from "../Cart/Cart.jsx";
-const Header = () => {
+const Header = ({ onSearch }) => {
   return (
     <div>
       <div className="top-bar">
@@ -34,9 +34,14 @@ const Header = () => {
                 </p>
               </a>
             </div>
-            <SearchBar />
+            <SearchBar onSearch={onSearch} />
             <CartIcon />
           </div>
+        </div>
+      </div>
+      <div className="navigation-bar">
+        <div className="header-container">
+          <Navigation />
         </div>
       </div>
     </div>

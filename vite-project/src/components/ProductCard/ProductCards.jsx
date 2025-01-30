@@ -6,7 +6,7 @@ import { useCategoryContext } from "../CategoryContext/CategoryContext.jsx";
 import Pagination from "../Pagination/Pagination.jsx";
 import Filter from "../TopFilter/TopFilter.jsx";
 
-const ProductCards = () => {
+const ProductCards = ({ searchText }) => {
   const [products, setProducts] = useState([]);
   const { checkedId } = useCategoryContext();
   const [isLoading, setIsLoading] = useState(false);
@@ -41,7 +41,13 @@ const ProductCards = () => {
 
   useEffect(() => {
     setCurrentPage(1);
-  }, [checkedId]);
+  }, [checkedId, searchText]);
+
+  const filteredProducts = products.filter((product) =>
+    product.name.toLowerCase().includes(searchText.toLowerCase())
+  );
+
+  const totalFilteredPages = Math.ceil(filteredProducts.length / itemsPerPage);
 
   if (isLoading) {
     return (
@@ -59,7 +65,7 @@ const ProductCards = () => {
     setCurrentPage(1);
   };
 
-  const endItem = Math.min(currentPage * itemsPerPage, pagination.totalItems);
+  const endItem = Math.min(currentPage * itemsPerPage, filteredProducts.length);
 
   return (
     <div>
@@ -71,7 +77,7 @@ const ProductCards = () => {
       />
 
       <div className={`product-carts ${viewMode}`}>
-        {products?.map((product) => (
+        {filteredProducts?.map((product) => (
           <ProductCard
             key={product._id}
             newprice={Math.floor(product.price)}

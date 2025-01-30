@@ -4,26 +4,23 @@ const Navigation = () => {
   return (
     <nav className="navigation">
       <ul>
-        <li>
+        <li className="actived">
           <a href="#">Home</a>
         </li>
         <li>
-          <a href="#">Hot Deals</a>
+          <a href="#">Electronics</a>
         </li>
         <li>
-          <a href="#">Categories</a>
+          <a href="#">Cloting</a>
         </li>
         <li>
-          <a href="#">Laptops</a>
+          <a href="#">Home & Garden</a>
         </li>
         <li>
-          <a href="#">Smartphones</a>
+          <a href="#">Books</a>
         </li>
         <li>
-          <a href="#">Cameras</a>
-        </li>
-        <li>
-          <a href="#">Accessories</a>
+          <a href="#">Sports</a>
         </li>
       </ul>
     </nav>
