@@ -3,7 +3,7 @@ export const ProductCard = ({
   img,
   alt,
   name,
-  newprice,
+  price,
   stock,
   category,
   description,
@@ -22,7 +22,7 @@ export const ProductCard = ({
           <p className="product-name">{name}</p>
           <p className="description">{description}</p>
           <div className="product-price">
-            <p className="new-price">${newprice}</p>
+            <p className="price">${price}</p>
           </div>
           <p className={`stock ${stock === 0 ? "out-of-stock" : ""}`}>
             <i className="fa fa-check-circle"></i>
@@ -41,13 +41,13 @@ export const ProductCard = ({
           </div>
           <div className="actions">
             <button className="fevorite">
-              <i className="fa fa-heart"></i>
+              <i className="fas fa-heart"></i>
             </button>
             <button className="share">
-              <i className="fa fa-exchange"></i>
+              <i className="fas fa-exchange"></i>
             </button>
             <button className="view">
-              <i className="fa fa-eye"></i>
+              <i className="fas fa-eye"></i>
             </button>
           </div>
           <div className="add-to-cart">

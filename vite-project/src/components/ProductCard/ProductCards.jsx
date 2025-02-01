@@ -80,7 +80,7 @@ const ProductCards = ({ searchText }) => {
         {filteredProducts?.map((product) => (
           <ProductCard
             key={product._id}
-            newprice={Math.floor(product.price)}
+            price={Math.floor(product.price)}
             img={product.images[1]}
             name={product.name}
             category={product.category.name}
