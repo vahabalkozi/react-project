@@ -16,12 +16,12 @@ function Layout() {
   };
   return (
     <div>
-      <div className="header">
-        <Header onSearch={handleSearch} />
-      </div>
-      <div className="main">
-        <div className="container">
-          <CategoryProvider>
+      <CategoryProvider>
+        <div className="header">
+          <Header onSearch={handleSearch} />
+        </div>
+        <div className="main">
+          <div className="container">
             <div className="left-filters">
               <CategoryiesList />
               <Brands />
@@ -30,9 +30,9 @@ function Layout() {
             <div className="product-carts-box">
               <ProductCards searchText={searchText} />
             </div>
-          </CategoryProvider>
+          </div>
         </div>
-      </div>
+      </CategoryProvider>
       <div className="footer">
         <Footer />
       </div>

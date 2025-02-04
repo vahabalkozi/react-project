@@ -24,7 +24,12 @@ const ProductCards = ({ searchText }) => {
     setIsLoading(true);
 
     try {
-      const data = await FetchProduct(checkedId, currentPage, itemsPerPage);
+      const data = await FetchProduct(
+        checkedId,
+        currentPage,
+        itemsPerPage,
+        searchText
+      );
       setProducts(data.products);
       setPagination(data.pagination);
       setIsLoading(false);
@@ -37,17 +42,11 @@ const ProductCards = ({ searchText }) => {
 
   useEffect(() => {
     loadProducts();
-  }, [checkedId, currentPage, itemsPerPage]);
+  }, [checkedId, currentPage, itemsPerPage, searchText]);
 
   useEffect(() => {
     setCurrentPage(1);
   }, [checkedId, searchText]);
-
-  const filteredProducts = products.filter((product) =>
-    product.name.toLowerCase().includes(searchText.toLowerCase())
-  );
-
-  const totalFilteredPages = Math.ceil(filteredProducts.length / itemsPerPage);
 
   if (isLoading) {
     return (
@@ -65,7 +64,7 @@ const ProductCards = ({ searchText }) => {
     setCurrentPage(1);
   };
 
-  const endItem = Math.min(currentPage * itemsPerPage, filteredProducts.length);
+  const endItem = Math.min(currentPage * itemsPerPage, pagination.totalItems);
 
   return (
     <div>
@@ -77,7 +76,7 @@ const ProductCards = ({ searchText }) => {
       />
 
       <div className={`product-carts ${viewMode}`}>
-        {filteredProducts?.map((product) => (
+        {products?.map((product) => (
           <ProductCard
             key={product._id}
             price={Math.floor(product.price)}
