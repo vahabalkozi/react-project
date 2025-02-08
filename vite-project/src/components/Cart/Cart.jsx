@@ -4,6 +4,7 @@ const CartIcon = () => {
   return (
     <div className="icons">
       <div className="heart-icon">
+        <span className="item-in-liked">0</span>
         <a href="#">
           <i className="fa fa-heart"></i>
           <p>Your Wishlist</p>

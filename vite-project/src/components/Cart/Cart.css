@@ -24,10 +24,11 @@
   margin: 5px 0 0;
   transition: 0.3s ease;
 }
-.cart-icon .item-in-cart {
+.cart-icon .item-in-cart,
+.heart-icon .item-in-liked {
   position: absolute;
   top: -10px;
-  right: 0;
+  right: -5px;
   width: 20px;
   height: 20px;
   border-radius: 50%;
@@ -35,4 +36,7 @@
   text-align: center;
   background-color: crimson;
   color: white;
+}
+.heart-icon .item-in-liked {
+  right: 10px;
 }

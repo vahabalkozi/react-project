@@ -9,16 +9,15 @@ const SearchBar = ({ onSearch }) => {
   const [error, setError] = useState(undefined);
   const { checkedId, handleCheckboxChange } = useCategoryContext();
 
-  const handleCategories = async () => {
-    try {
-      const data = await FetchCategories();
-      setCategories(data);
-    } catch (error) {
-      setError(error.message);
-    }
-  };
-
   useEffect(() => {
+    const handleCategories = async () => {
+      try {
+        const data = await FetchCategories();
+        setCategories(data);
+      } catch (error) {
+        setError(error.message);
+      }
+    };
     handleCategories();
   }, []);
 
@@ -27,18 +26,20 @@ const SearchBar = ({ onSearch }) => {
     onSearch(searchText);
   };
 
+  const handleCategoryChange = (event) => {
+    const selectedValue = event.target.value;
+    handleCheckboxChange(
+      selectedValue === "All Categories" ? null : selectedValue
+    );
+  };
+
   return (
     <div>
       <form action="" onSubmit={handleSearch} className="search-bar">
         <div className="select-option">
           <select
             value={checkedId || "All Categories"}
-            onChange={(e) => {
-              const selectedValue = e.target.value;
-              handleCheckboxChange(
-                selectedValue === "All Categories" ? null : selectedValue
-              );
-            }}
+            onChange={handleCategoryChange}
           >
             <option>All Categories</option>
             {categories?.map((category) => (
@@ -53,9 +54,7 @@ const SearchBar = ({ onSearch }) => {
           placeholder="Search here"
           className="search"
           value={searchText}
-          onChange={(e) => {
-            setSearchText(e.target.value.trim());
-          }}
+          onChange={(e) => setSearchText(e.target.value)}
         />
         <button className="search-button">Search</button>
       </form>
