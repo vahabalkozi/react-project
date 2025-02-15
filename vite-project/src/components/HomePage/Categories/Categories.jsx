@@ -1,5 +1,5 @@
 import "./Categories.css";
-import FetchCategories from "../../FetchFunction/FetchCategories/FetchCategories.jsx";
+import FetchCategories from "../../../FetchFunction/FetchCategories/FetchCategories.jsx";
 import { useEffect, useState } from "react";
 import { CategoryItem } from "./CategoryItem.jsx";
 import { useCategoryContext } from "../CategoryContext/CategoryContext.jsx";

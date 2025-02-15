@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import "./SearchBar.css";
-import FetchCategories from "../../FetchFunction/FetchCategories/FetchCategories.jsx";
+import FetchCategories from "../../../FetchFunction/FetchCategories/FetchCategories.jsx";
 import { useCategoryContext } from "../CategoryContext/CategoryContext.jsx";
 
 const SearchBar = ({ onSearch }) => {
@@ -32,7 +32,6 @@ const SearchBar = ({ onSearch }) => {
       selectedValue === "All Categories" ? null : selectedValue
     );
   };
-
   return (
     <div>
       <form action="" onSubmit={handleSearch} className="search-bar">

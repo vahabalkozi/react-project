@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import FetchProduct from "../../FetchFunction/FetchProduct/FetchProduct.jsx";
+import FetchProduct from "../../../FetchFunction/FetchProduct/FetchProduct.jsx";
 import "./ProductCard.css";
 import { ProductCard } from "./ProductCard.jsx";
 import { useCategoryContext } from "../CategoryContext/CategoryContext.jsx";
@@ -58,6 +58,16 @@ const ProductCards = ({ searchText }) => {
   if (error) {
     return <p className="error">Error:{error}</p>;
   }
+  if (pagination.totalPages === 0) {
+    return (
+      <div className="no-product">
+        <p>
+          "No products found. Please try refining your search or explore other
+          categories"
+        </p>
+      </div>
+    );
+  }
 
   const handleItemsPerPageChange = (event) => {
     setItemsPerPage(Number(event.target.value));
@@ -79,6 +89,7 @@ const ProductCards = ({ searchText }) => {
         {products?.map((product) => (
           <ProductCard
             key={product._id}
+            id={product._id}
             price={Math.floor(product.price)}
             img={product.images[1]}
             name={product.name}

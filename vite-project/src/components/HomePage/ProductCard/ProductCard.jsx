@@ -1,7 +1,8 @@
 import "./ProductCard.css";
+import { useNavigate } from "react-router-dom";
 export const ProductCard = ({
+  id,
   img,
-  alt,
   name,
   price,
   stock,
@@ -9,13 +10,19 @@ export const ProductCard = ({
   description,
   rating = 0,
 }) => {
+  const navigate = useNavigate();
+
   const filledStars = Math.floor(rating);
   const emptyStars = 5 - filledStars;
+
+  const handleCardClick = () => {
+    navigate(`/product/${id}`);
+  };
   return (
     <div>
-      <div className="product-card">
+      <div className="product-card" onClick={handleCardClick}>
         <div className="product-image">
-          <img src={img} alt={alt} />
+          <img src={img} />
         </div>
         <div className="product-info">
           <p className="category">{category}</p>

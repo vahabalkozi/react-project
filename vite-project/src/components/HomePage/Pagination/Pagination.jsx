@@ -57,7 +57,7 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
   return (
     <div className="pagination-box">
       <button
-        className="pagination-button"
+        className={`pagination-button ${currentPage === 1 ? "hidden" : ""}`}
         onClick={goToPreviousPage}
         disabled={currentPage === 1}
       >
@@ -73,7 +73,9 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
         />
       ))}
       <button
-        className="pagination-button"
+        className={`pagination-button ${
+          currentPage === totalPages ? "hidden" : ""
+        }`}
         onClick={goToNextPage}
         disabled={currentPage === totalPages}
       >

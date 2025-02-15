@@ -12,6 +12,9 @@
   color: black;
   transition: 0.3s ease;
 }
+.hidden {
+  display: none;
+}
 .pagination-button:hover {
   background-color: #dfdddd;
   border: 1px solid #ccc;

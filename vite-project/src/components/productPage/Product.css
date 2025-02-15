@@ -1,0 +1,171 @@
+.product-container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+.single-product-cart {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 100px 0;
+}
+.single-product-cart .product-image {
+  width: 400px;
+  height: 400px;
+  margin-right: 50px;
+}
+.single-product-cart .product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.single-product-cart .product-information .product-name {
+  font-size: 20px;
+}
+.single-product-cart .product-information .rating {
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+}
+.product-information .rating .rating-star {
+  font-size: 12px;
+  margin-right: 20px;
+}
+.product-information .rating .rating-star .fa-star {
+  color: white;
+  -webkit-text-stroke: 0.5px #333;
+}
+.product-information .rating .rating-star .fa-star.filled {
+  color: crimson;
+}
+.product-information .rating .review {
+  font-size: 14px;
+}
+.product-information .product-price {
+  display: flex;
+  align-items: center;
+}
+.product-information .product-price .price {
+  font-size: 20px;
+  color: crimson;
+  font-weight: bold;
+  margin-right: 80px;
+}
+.product-information .product-price .stock {
+  color: crimson;
+  font-size: 14px;
+  font-weight: bold;
+}
+.product-information .product-price .stock.out-of-stock {
+  color: #f44336;
+}
+.product-information .product-description {
+  width: 400px;
+  margin: 10px 0;
+  font-size: 14px;
+}
+.product-information .product-size,
+.product-size .size,
+.product-size .color {
+  display: flex;
+  align-items: center;
+  margin: 15px 0;
+  margin-right: 40px;
+}
+.product-information .product-size .size .select-box select,
+.product-information .product-size .color .select-box select,
+.product-information .product-qty .qty input {
+  width: 80px;
+  height: 30px;
+  padding: 5px;
+  border-radius: none;
+  background-color: white;
+  border: 1px solid #c0bebe;
+  margin-left: 5px;
+  cursor: pointer;
+}
+.product-information .product-size .size .select-box,
+.product-information .product-size .color .select-box {
+  position: relative;
+}
+.product-information .product-size .size .select-box::after,
+.product-information .product-size .color .select-box::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 20px;
+  background-color: #6e6c6c;
+  pointer-events: none;
+  opacity: 0.3;
+}
+.product-information .product-qty,
+.product-information .product-qty .qty,
+.product-information .add-to-wishlist-compare {
+  display: flex;
+  align-items: center;
+}
+.product-information .product-qty .add-to-card .add-card-button {
+  width: 150px;
+  padding: 8px 0;
+  border-radius: 20px;
+  border: 2px solid transparent;
+  color: white;
+  background-color: crimson;
+  outline: none;
+  font-size: 14px;
+  cursor: pointer;
+  transition: 0.5s;
+  margin-left: 30px;
+}
+.product-information .product-qty .add-to-card .add-card-button:hover {
+  background-color: transparent;
+  color: black;
+  border: 2px solid black;
+}
+.product-information .add-to-wishlist-compare .wishlist,
+.product-information .add-to-wishlist-compare .compare {
+  margin: 15px 0;
+  margin-right: 30px;
+}
+.product-information .add-to-wishlist-compare .wishlist a,
+.product-information .add-to-wishlist-compare .compare a {
+  color: #333;
+  font-size: 12px;
+  transition: 0.5s ease;
+}
+.product-information .add-to-wishlist-compare .wishlist a:hover,
+.product-information .add-to-wishlist-compare .compare a:hover,
+.product-information .category p a:hover {
+  color: crimson;
+}
+.product-information .add-to-wishlist-compare .wishlist a i,
+.product-information .add-to-wishlist-compare .compare a i {
+  margin-right: 5px;
+}
+.product-information .category p {
+  font-size: 14px;
+}
+.product-information .category p a {
+  color: #333;
+  margin-left: 10px;
+  transition: 0.5s ease;
+}
+.product-information .share {
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+}
+.product-information .share .share-icons i {
+  font-size: 12px;
+  margin-left: 10px;
+  cursor: pointer;
+  transition: 0.5s ease;
+}
+.product-information .share .share-icons i:hover {
+  color: crimson;
+}
+.loader-box {
+  text-align: center;
+  margin: 200px 0;
+}
