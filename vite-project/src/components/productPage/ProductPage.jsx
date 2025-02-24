@@ -1,7 +1,8 @@
 import ProductPage from "./Product.jsx";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import FetchProductInfo from "../../FetchFunction/FetchProductInfo/ProductInfo.jsx";
 import { useParams } from "react-router-dom";
+import { CartContext } from "../HomePage/CartContext/CartCantext.jsx";
 import "./Product.css";
 
 const ProductInformation = () => {
@@ -9,6 +10,7 @@ const ProductInformation = () => {
   const [product, setproduct] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(undefined);
+  const { addToCart, message } = useContext(CartContext);
 
   useEffect(() => {
     const loadProductInfo = async () => {
@@ -37,6 +39,11 @@ const ProductInformation = () => {
   }
   return (
     <div className="product">
+      {message && (
+        <div className="cart-message">
+          <p className="message">{message}</p>
+        </div>
+      )}
       <ProductPage
         name={product?.name}
         img={product?.images[1]}
@@ -45,6 +52,7 @@ const ProductInformation = () => {
         category={product?.category.name}
         rating={product.rating}
         stock={product.stock}
+        onclick={() => addToCart(product)}
       />
     </div>
   );

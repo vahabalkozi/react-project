@@ -1,7 +1,8 @@
 import "./Header.css";
 import Navigation from "../Navigation/Navigation.jsx";
 import SearchBar from "../SearchBar/SearchBar.jsx";
-import CartIcon from "../Cart/Cart.jsx";
+import CartIcon from "../CartIcon/CartIcon.jsx";
+import { Link } from "react-router-dom";
 const Header = ({ onSearch }) => {
   return (
     <div>
@@ -28,11 +29,11 @@ const Header = ({ onSearch }) => {
         <div className="header-container">
           <div className="main-header-info">
             <div className="logo">
-              <a href="#">
+              <Link to="/">
                 <p>
                   Electro <i className=" 	fa fa-circle"></i>
                 </p>
-              </a>
+              </Link>
             </div>
             <SearchBar onSearch={onSearch} />
             <CartIcon />

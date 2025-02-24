@@ -1,10 +1,11 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import FetchProduct from "../../../FetchFunction/FetchProduct/FetchProduct.jsx";
 import "./ProductCard.css";
 import { ProductCard } from "./ProductCard.jsx";
 import { useCategoryContext } from "../CategoryContext/CategoryContext.jsx";
 import Pagination from "../Pagination/Pagination.jsx";
 import Filter from "../TopFilter/TopFilter.jsx";
+import { CartContext } from "../CartContext/CartCantext.jsx";
 
 const ProductCards = ({ searchText }) => {
   const [products, setProducts] = useState([]);
@@ -15,6 +16,7 @@ const ProductCards = ({ searchText }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage, setItemsPerPage] = useState(10);
   const [viewMode, setViewMode] = useState("grid");
+  const { addToCart, message } = useContext(CartContext);
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -78,6 +80,11 @@ const ProductCards = ({ searchText }) => {
 
   return (
     <div>
+      {message && (
+        <div className="cart-message">
+          <p className="message">{message}</p>
+        </div>
+      )}
       <Filter
         itemPerPage={itemsPerPage}
         onchange={handleItemsPerPageChange}
@@ -101,6 +108,7 @@ const ProductCards = ({ searchText }) => {
             }
             stock={product.stock}
             rating={product.rating}
+            onclick={() => addToCart(product)}
           />
         ))}
       </div>

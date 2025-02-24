@@ -1,6 +1,10 @@
-import "./Cart.css";
+import "./CartIcon.css";
+import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { CartContext } from "../CartContext/CartCantext";
 
 const CartIcon = () => {
+  const { totalItem } = useContext(CartContext);
   return (
     <div className="icons">
       <div className="heart-icon">
@@ -11,11 +15,11 @@ const CartIcon = () => {
         </a>
       </div>
       <div className="cart-icon">
-        <span className="item-in-cart">0</span>
-        <a href="#">
+        <span className="item-in-cart">{totalItem}</span>
+        <Link to="/cart">
           <i className="fas fa-shopping-cart"></i>
           <p>Your Cart</p>
-        </a>
+        </Link>
       </div>
     </div>
   );

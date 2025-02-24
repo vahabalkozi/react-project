@@ -9,6 +9,7 @@ export const ProductCard = ({
   category,
   description,
   rating = 0,
+  onclick,
 }) => {
   const navigate = useNavigate();
 
@@ -17,6 +18,10 @@ export const ProductCard = ({
 
   const handleCardClick = () => {
     navigate(`/product/${id}`);
+  };
+  const handleAddToCart = (event) => {
+    event.stopPropagation();
+    onclick();
   };
   return (
     <div>
@@ -58,7 +63,9 @@ export const ProductCard = ({
             </button>
           </div>
           <div className="add-to-cart">
-            <button className="add-cart-button">Add to Cart</button>
+            <button className="add-cart-button" onClick={handleAddToCart}>
+              Add to Cart
+            </button>
           </div>
         </div>
       </div>

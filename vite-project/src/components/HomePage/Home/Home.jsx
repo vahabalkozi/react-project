@@ -1,5 +1,4 @@
 import "./Home.css";
-import { CategoryProvider } from "../CategoryContext/CategoryContext";
 import Brands from "../Brands/Brands.jsx";
 import CategoryiesList from "../Categories/Categories.jsx";
 import TopSelling from "../TopSellingProduct/TopSelling.jsx";

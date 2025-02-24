@@ -8,6 +8,7 @@ const ProductPage = ({
   category,
   description,
   rating = 0,
+  onclick,
 }) => {
   const fillStar = Math.floor(rating);
   const emptyStar = 5 - fillStar;
@@ -70,7 +71,9 @@ const ProductPage = ({
                 <input type="number" defaultValue={1} min={1} max={5} />
               </div>
               <div className="add-to-card">
-                <button className="add-card-button">Add to Cart</button>
+                <button className="add-card-button" onClick={onclick}>
+                  Add to Cart
+                </button>
               </div>
             </div>
             <div className="add-to-wishlist-compare">

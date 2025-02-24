@@ -108,7 +108,7 @@
 .product-information .product-qty .add-to-card .add-card-button {
   width: 150px;
   padding: 8px 0;
-  border-radius: 20px;
+  border-radius: 5px;
   border: 2px solid transparent;
   color: white;
   background-color: crimson;
@@ -168,4 +168,18 @@
 .loader-box {
   text-align: center;
   margin: 200px 0;
+}
+.cart-message {
+  background-color: #e6e6e3;
+  color: black;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #818180;
+  margin: 10px auto;
+  text-align: center;
+  position: fixed;
+  top: 10px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  z-index: 5;
 }

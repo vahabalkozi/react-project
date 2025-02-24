@@ -122,10 +122,10 @@
   color: crimson;
 }
 .product-info .add-to-cart .add-cart-button {
-  width: 200px;
+  width: 230px;
   margin-top: 10px;
   padding: 10px 0;
-  border-radius: 20px;
+  border-radius: 5px;
   border: 2px solid transparent;
   color: white;
   background-color: crimson;
