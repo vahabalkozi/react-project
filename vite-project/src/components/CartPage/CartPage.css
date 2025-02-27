@@ -1,9 +1,10 @@
 .cart-basket {
   width: 1300px;
-  background-color: #f4f4f4;
+  background-color: #e9e8e8;
   margin: 20px auto;
   padding: 20px;
   border-radius: 5px;
+  color: black;
 }
 .cart-basket .cart-title {
   display: flex;
@@ -30,13 +31,13 @@
   border: 1px solid black;
 }
 .cart-item {
-  border-top: 1px solid#b3b3b3;
+  border-top: 1px solid #6c6b6b;
 }
 .cart {
   display: flex;
   padding: 10px 0;
   margin: 10px 0;
-  border-bottom: 1px solid#b3b3b3;
+  border-bottom: 1px solid#6c6b6b;
 }
 .cart .item-info {
   padding: 20px;
@@ -102,6 +103,15 @@
 }
 .empty-cart i {
   margin-right: 10px;
-  font-size: 40px;
+  font-size: 45px;
   color: black;
+}
+.fa-check-square {
+  font-size: 18px;
+  color: green;
+}
+.fa-exclamation-triangle {
+  font-size: 18px;
+  color: #f39507;
+  margin-right: 5px;
 }

@@ -3,7 +3,8 @@ import Brands from "../Brands/Brands.jsx";
 import CategoryiesList from "../Categories/Categories.jsx";
 import TopSelling from "../TopSellingProduct/TopSelling.jsx";
 import ProductCards from "../ProductCard/ProductCards.jsx";
-const Home = ({ queryText }) => {
+
+const Home = () => {
   return (
     <div>
       <div className="container">
@@ -13,7 +14,7 @@ const Home = ({ queryText }) => {
           <TopSelling />
         </div>
         <div className="product-carts-box">
-          <ProductCards searchText={queryText} />
+          <ProductCards />
         </div>
       </div>
     </div>

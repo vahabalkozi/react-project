@@ -1,13 +1,15 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import "./SearchBar.css";
-import FetchCategories from "../../../FetchFunction/FetchCategories/FetchCategories.jsx";
-import { useCategoryContext } from "../CategoryContext/CategoryContext.jsx";
+import FetchCategories from "../../../api/categories/categories.js";
+import { useCategoryContext } from "../../../Contexts/CategoryContext/CategoryContext.jsx";
+import { SearchContext } from "../../../Contexts/SearchContext/SearchContext.jsx";
 
-const SearchBar = ({ onSearch }) => {
+const SearchBar = () => {
   const [searchText, setSearchText] = useState("");
   const [categories, setCategories] = useState([]);
   const [error, setError] = useState(undefined);
   const { checkedId, handleCheckboxChange } = useCategoryContext();
+  const { updateSearchQuery } = useContext(SearchContext);
 
   useEffect(() => {
     const handleCategories = async () => {
@@ -23,7 +25,7 @@ const SearchBar = ({ onSearch }) => {
 
   const handleSearch = (event) => {
     event.preventDefault();
-    onSearch(searchText);
+    updateSearchQuery(searchText, event);
   };
 
   const handleCategoryChange = (event) => {

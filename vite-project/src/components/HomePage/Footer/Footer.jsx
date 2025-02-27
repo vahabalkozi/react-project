@@ -1,5 +1,5 @@
 import "./Footer.css";
-import { FooterList } from "./FooterList";
+import { FooterList } from "./FooterList.jsx";
 
 const Footer = () => {
   return (

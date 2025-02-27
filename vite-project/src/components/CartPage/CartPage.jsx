@@ -1,10 +1,10 @@
 import CartPageItem from "./CartPageItem.jsx";
-import { CartContext } from "../HomePage/CartContext/CartCantext.jsx";
+import { CartContext } from "../../Contexts/CartContext/CartContext.jsx";
 import { useContext } from "react";
 import "./CartPage.css";
 
 const CartPage = () => {
-  const { cart, calcuteTotalPrice, removeProductInCart, setCart } =
+  const { cart, calcuteTotalPrice, removeProductInCart, clearCart } =
     useContext(CartContext);
 
   if (cart.length === 0) {
@@ -18,9 +18,6 @@ const CartPage = () => {
     );
   }
 
-  const deleteAllItemsInCart = () => {
-    setCart([]);
-  };
   return (
     <div>
       <div className="product-container">
@@ -28,9 +25,7 @@ const CartPage = () => {
           <div className="cart-title">
             <h1>Shopping Basket</h1>
             <div className="delete-all">
-              <button onClick={() => deleteAllItemsInCart()}>
-                Delete all items
-              </button>
+              <button onClick={() => clearCart()}>Delete all items</button>
             </div>
           </div>
           <div className="cart-item">
@@ -39,14 +34,14 @@ const CartPage = () => {
                 key={item._id}
                 name={item.name}
                 img={item.images[1]}
-                price={Math.floor(item.price)}
+                price={Math.ceil(item.price)}
                 onclick={() => removeProductInCart(item._id)}
               />
             ))}
           </div>
           <div className="subtotal">
             <p>
-              Subtotal Price: <span>${Math.floor(calcuteTotalPrice())}</span>
+              Subtotal Price: <span>${Math.ceil(calcuteTotalPrice())}</span>
             </p>
           </div>
         </div>

@@ -26,7 +26,7 @@ const CartProvider = ({ children }) => {
       if (!exists) {
         setMessage(
           <span>
-            <i className="fas fa-check-circle"></i> The Product Add ToThe Cart.
+            <i className="fas fa-check-square"></i> The Product Add ToThe Cart.
           </span>
         );
         setTimeout(() => setMessage(""), 3000);
@@ -51,7 +51,14 @@ const CartProvider = ({ children }) => {
   const removeProductInCart = (id) => {
     const updatedCart = cart.filter((item) => item._id !== id);
     setCart(updatedCart);
+    localStorage.setItem("cart", JSON.stringify(updatedCart));
   };
+
+  const clearCart = () => {
+    setCart([]);
+    localStorage.removeItem("cart");
+  };
+
   return (
     <CartContext.Provider
       value={{
@@ -62,6 +69,7 @@ const CartProvider = ({ children }) => {
         calcuteTotalPrice,
         removeProductInCart,
         setCart,
+        clearCart,
       }}
     >
       {children}

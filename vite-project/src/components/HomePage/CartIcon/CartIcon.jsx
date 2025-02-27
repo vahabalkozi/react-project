@@ -1,7 +1,7 @@
 import "./CartIcon.css";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
-import { CartContext } from "../CartContext/CartCantext";
+import { CartContext } from "../../../Contexts/CartContext/CartContext";
 
 const CartIcon = () => {
   const { totalItem } = useContext(CartContext);

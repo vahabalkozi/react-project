@@ -1,13 +1,14 @@
 import { useState, useEffect, useContext } from "react";
-import FetchProduct from "../../../FetchFunction/FetchProduct/FetchProduct.jsx";
+import FetchProduct from "../../../api/products/products.js";
 import "./ProductCard.css";
 import { ProductCard } from "./ProductCard.jsx";
-import { useCategoryContext } from "../CategoryContext/CategoryContext.jsx";
+import { useCategoryContext } from "../../../Contexts/CategoryContext/CategoryContext.jsx";
 import Pagination from "../Pagination/Pagination.jsx";
 import Filter from "../TopFilter/TopFilter.jsx";
-import { CartContext } from "../CartContext/CartCantext.jsx";
+import { CartContext } from "../../../Contexts/CartContext/CartContext.jsx";
+import { SearchContext } from "../../../Contexts/SearchContext/SearchContext.jsx";
 
-const ProductCards = ({ searchText }) => {
+const ProductCards = () => {
   const [products, setProducts] = useState([]);
   const { checkedId } = useCategoryContext();
   const [isLoading, setIsLoading] = useState(false);
@@ -17,6 +18,7 @@ const ProductCards = ({ searchText }) => {
   const [itemsPerPage, setItemsPerPage] = useState(10);
   const [viewMode, setViewMode] = useState("grid");
   const { addToCart, message } = useContext(CartContext);
+  const { searchQuery } = useContext(SearchContext);
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -30,7 +32,7 @@ const ProductCards = ({ searchText }) => {
         checkedId,
         currentPage,
         itemsPerPage,
-        searchText
+        searchQuery
       );
       setProducts(data.products);
       setPagination(data.pagination);
@@ -44,11 +46,11 @@ const ProductCards = ({ searchText }) => {
 
   useEffect(() => {
     loadProducts();
-  }, [checkedId, currentPage, itemsPerPage, searchText]);
+  }, [checkedId, currentPage, itemsPerPage, searchQuery]);
 
   useEffect(() => {
     setCurrentPage(1);
-  }, [checkedId, searchText]);
+  }, [checkedId, searchQuery]);
 
   if (isLoading) {
     return (
@@ -97,7 +99,7 @@ const ProductCards = ({ searchText }) => {
           <ProductCard
             key={product._id}
             id={product._id}
-            price={Math.floor(product.price)}
+            price={Math.ceil(product.price)}
             img={product.images[1]}
             name={product.name}
             category={product.category.name}

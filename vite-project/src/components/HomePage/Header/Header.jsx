@@ -3,7 +3,7 @@ import Navigation from "../Navigation/Navigation.jsx";
 import SearchBar from "../SearchBar/SearchBar.jsx";
 import CartIcon from "../CartIcon/CartIcon.jsx";
 import { Link } from "react-router-dom";
-const Header = ({ onSearch }) => {
+const Header = () => {
   return (
     <div>
       <div className="top-bar">
@@ -35,7 +35,7 @@ const Header = ({ onSearch }) => {
                 </p>
               </Link>
             </div>
-            <SearchBar onSearch={onSearch} />
+            <SearchBar />
             <CartIcon />
           </div>
         </div>

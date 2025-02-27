@@ -1,8 +1,8 @@
 import ProductPage from "./Product.jsx";
 import { useContext, useEffect, useState } from "react";
-import FetchProductInfo from "../../FetchFunction/FetchProductInfo/ProductInfo.jsx";
+import FetchProductInfo from "../../api/products-info/products-info.js";
 import { useParams } from "react-router-dom";
-import { CartContext } from "../HomePage/CartContext/CartCantext.jsx";
+import { CartContext } from "../../Contexts/CartContext/CartContext.jsx";
 import "./Product.css";
 
 const ProductInformation = () => {
@@ -48,7 +48,7 @@ const ProductInformation = () => {
         name={product?.name}
         img={product?.images[1]}
         description={product?.description}
-        price={Math.floor(product?.price)}
+        price={Math.ceil(product?.price)}
         category={product?.category.name}
         rating={product.rating}
         stock={product.stock}
